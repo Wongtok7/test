@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>student</title>
+</head>
+<style>
+	span{
+		color:red;
+	}
+</style>
+<body>
+	<form name="addForm" action="/student/insert" method="post" onsubmit="return check()">
+		<div>
+			Name:<input id="name" type="text" name="name" /><br>
+			<span name = "nameError"></span>
+		</div>
+		<div>
+			Age:<input id="age" type="text" name="age" /><br>
+			<span name = "ageError"></span>
+		</div>
+		<div>
+			Score:<input id="score" type="text" name="score" /><br>
+			<span name = "scoreError"></span>
+		</div>
+		<div>
+			Address:<input id="address" type="text" name="address" /><br>
+			<span name = "addressError"></span>
+		</div>
+		<div>
+			Class:<input id="stuClass" type="text" name="stuClass" /><br>
+			<span name = "stuClassError"></span>
+		</div>
+
+		<input type="submit" value="studentLogin">
+	</form>
+</body>
+<script>
+	function check() {
+		/*var age = document.addForm.age.value;
+		var name = document.addForm.name.value;
+		var score = document.addForm.score.value;
+		var stuClass = document.addForm.stuClass.value;
+
+		if (age.match(/[^0-9]+/)) {
+			alert("NO");
+			return false;
+		} else if (age.match(/[0-9]+/)) {
+
+			return true;
+		}
+
+		if (name.match(/[0-9]+/)) {
+			alert("NO");
+			return false;
+		} else if (name.match(/[^0-9]+/)) {
+
+			return true;
+
+		}
+		if (score.match(/[^0-9]+/)) {
+			alert("NO");
+			return false;
+			
+
+		} else if(score < 0 || score > 100){
+			  
+				alert("NO");
+				return false;
+			
+		}else{
+			return true;
+		}*/
+		var isSubmit = true;
+		var name = document.addForm.name.value;
+		var age = document.addForm.age.value;
+		var score = document.addForm.score.value;
+		var address = document.addForm.address.value;
+		var stuClass = document.addForm.stuClass.value;
+		var nameError ='';
+		var ageErorr= '';
+		var scoreError ='';
+		var addressError ='';
+		var stuClassError ='';
+		
+		
+		if(name == ''){
+			document.getElementsByName("nameError")[0].innerText='nameError';
+			
+			isSubmit = false;
+		}else if(name.match(/[0-9]+/) || name.match(/[^%&',;=?$\x22]+/)){
+			alert("NO");
+			return false;
+			
+		}else if(name.match(/[^ぁ-んァ-ヶー\s]/)){
+			return isSubmit;
+			
+		}
+		if(age == ''){
+			document.getElementsByName("ageError")[0].innerText='ageError';
+			isSubmit = false;
+		}else if(age.match(/[^0-9]+/)){
+			alert("NO");
+			return false;
+		}
+		if(score == ''){
+			document.getElementsByName("scoreError")[0].innerText='scoreError';
+			isSubmit = false;
+		}else if(score.match(/[^0-9]+/)){
+			alert("NO");
+			return false;	
+		}else if(score < 0 || score > 100){
+			alert("NO");
+			return false;
+		}
+		if(address == ''){
+			document.getElementsByName("addressError")[0].innerText='addressError';
+			isSubmit = false;
+		}
+		if(stuClass == ''){
+			document.getElementsByName("stuClassError")[0].innerText='stuClassError';
+			isSubmit = false;
+		}
+			return isSubmit;
+	}
+</script>
+
+</html>
