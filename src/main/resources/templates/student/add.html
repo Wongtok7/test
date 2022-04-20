@@ -38,40 +38,6 @@
 </body>
 <script>
 	function check() {
-		/*var age = document.addForm.age.value;
-		var name = document.addForm.name.value;
-		var score = document.addForm.score.value;
-		var stuClass = document.addForm.stuClass.value;
-
-		if (age.match(/[^0-9]+/)) {
-			alert("NO");
-			return false;
-		} else if (age.match(/[0-9]+/)) {
-
-			return true;
-		}
-
-		if (name.match(/[0-9]+/)) {
-			alert("NO");
-			return false;
-		} else if (name.match(/[^0-9]+/)) {
-
-			return true;
-
-		}
-		if (score.match(/[^0-9]+/)) {
-			alert("NO");
-			return false;
-			
-
-		} else if(score < 0 || score > 100){
-			  
-				alert("NO");
-				return false;
-			
-		}else{
-			return true;
-		}*/
 		var isSubmit = true;
 		var name = document.addForm.name.value;
 		var age = document.addForm.age.value;
@@ -89,12 +55,12 @@
 			document.getElementsByName("nameError")[0].innerText='nameError';
 			
 			isSubmit = false;
-		}else if(name.match(/[0-9]+/) || name.match(/[^%&',;=?$\x22]+/)){
+		}else if(name.match(/[0-9]+/) || name.match(/[%&',;=?$\x22]+/)){
 			alert("NO");
 			return false;
 			
 		}else if(name.match(/[^ぁ-んァ-ヶー\s]/)){
-			return isSubmit;
+			isSubmit;
 			
 		}
 		if(age == ''){
@@ -103,6 +69,10 @@
 		}else if(age.match(/[^0-9]+/)){
 			alert("NO");
 			return false;
+		}else if(age < 15 || age >40){
+			alert("NO");
+			return  false;
+			
 		}
 		if(score == ''){
 			document.getElementsByName("scoreError")[0].innerText='scoreError';

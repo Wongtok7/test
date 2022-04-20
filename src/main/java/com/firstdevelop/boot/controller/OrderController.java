@@ -2,6 +2,7 @@ package com.firstdevelop.boot.controller;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.mail.internet.MimeMessage;
@@ -117,7 +118,7 @@ public class OrderController {
 	@RequestMapping("/sendM")
 	public String sendMail(@RequestParam("file_address_list") MultipartFile file_address_list,
 			@RequestParam("file_email_text") MultipartFile file_email_text,
-			@RequestParam("file_upload") MultipartFile file_upload,
+			@RequestParam("file_upload") MultipartFile[] file_uploads,
 			@RequestParam("title_email_text") String title_email_text, Model model) {
 		InputStream textData = null;
 		String emailText = null;
@@ -151,7 +152,6 @@ public class OrderController {
 			String perName = address.getPerson();
             //メールの基本設定
 			MimeMessage message = mailSender.createMimeMessage();
-			String fileName = file_upload.getOriginalFilename();
 			MimeMessageHelper helper;
 			try {
 				helper = new MimeMessageHelper(message, true);
@@ -161,8 +161,16 @@ public class OrderController {
 				helper.setSubject(title_email_text);
                 //本文
 				helper.setText(String.format(emailText, title, perName), true);
-                //添付ファイル
-				helper.addAttachment(fileName, file_upload);
+                //マルチ添付ファイル設定
+				if(file_uploads != null && file_uploads.length > 0) {
+					for(MultipartFile up_file : file_uploads) {
+						String fileName = up_file.getOriginalFilename();
+						helper.addAttachment(fileName, up_file);
+					}
+				}
+				//送信時間
+				helper.setSentDate(new Date());
+				
 				mailSender.send(message);
 			} catch (Exception e) {
 				// 送信失敗の場合、失敗のアドレス情報を格納

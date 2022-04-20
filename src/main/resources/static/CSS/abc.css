@@ -1,0 +1,24 @@
+body {
+    background-color:#ffffcc;
+}
+td {
+	font-weight:900;
+}
+#subBotton{
+	width: 150px;
+	height: 50px;
+	background-image: linear-gradient(to top, #D8D8D8 0%, #fff 80%, #FDFDFD 100%);
+	border-radius: 30px;
+	border: 1px solid #8F9092;
+	box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1, 0 -6px 4px #fefefe, inset 0 0 3px 0 #cecfd1;
+	transition: all 0.2s ease;
+	font-family: "粗体", sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	color: #606060;
+	text-shadow: 0 1px #fff;
+	text-align: center;
+	line-height: 50px;
+	cursor: pointer;
+	user-select: none;
+}
