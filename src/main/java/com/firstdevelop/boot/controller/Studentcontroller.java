@@ -32,41 +32,6 @@ public class Studentcontroller {
 		
 		List<Student> stu_list = studentService.searchALL();
 		model.addAttribute("stu_list",stu_list);
-//		for(int i = 0; i < stu_list.size(); i++) {
-//			System.out.println(stu_list.get(i));
-//		}
-//		int sumAge = stu_list.get(0).getAge();
-//		for(int g = 0; g < stu_list.size(); g++) {
-//			sumAge += stu_list.get(g).getAge();
-//			
-//		}
-//		System.out.println(sumAge);
-//		
-//		int sumScore = (int) stu_list.get(0).getScore();
-//		for(int h = 0; h < stu_list.size(); h++) {
-//			sumScore += stu_list.get(h).getScore();
-//			
-//		}
-//		System.out.println(sumScore);
-//		
-//		int maxAge = stu_list.get(0).getAge();
-//		for(int a = 0; a < stu_list.size(); a++) {
-//			if(stu_list.get(1).getAge() < stu_list.get(a).getAge()){
-//				maxAge = stu_list.get(a).getAge();
-//			}
-//		}
-//		System.out.println(maxAge);
-//		
-//		int maxScore = (int) stu_list.get(0).getScore();
-//		for(int b = 1; b < stu_list.size(); b++) {
-//			if(stu_list.get(0).getScore() < stu_list.get(b).getScore()){
-//				maxScore = (int) stu_list.get(b).getScore();
-//			}
-//		}
-//		System.out.println(maxScore);
-//		
-		
-
 	return "/student/all";			
 	}
 	@RequestMapping("/add")

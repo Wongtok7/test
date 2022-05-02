@@ -18,4 +18,5 @@
 	<delete id="delete" parameterType="java.lang.Integer">
 		update student set deleteFlag=1 where ID=#{StuID}
 	</delete>
+	
 </mapper>

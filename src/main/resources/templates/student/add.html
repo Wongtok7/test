@@ -34,6 +34,7 @@
 		</div>
 
 		<input type="submit" value="studentLogin">
+		<input type="submit" value="バッチ実行">
 	</form>
 </body>
 <script>
@@ -56,7 +57,7 @@
 			
 			isSubmit = false;
 		}else if(name.match(/[0-9]+/) || name.match(/[%&',;=?$\x22]+/)){
-			alert("NO");
+			alert("正しいの名前入力してください。");
 			return false;
 			
 		}else if(name.match(/[^ぁ-んァ-ヶー\s]/)){
@@ -67,10 +68,10 @@
 			document.getElementsByName("ageError")[0].innerText='ageError';
 			isSubmit = false;
 		}else if(age.match(/[^0-9]+/)){
-			alert("NO");
+			alert("正しいの年齢を入力してください。");
 			return false;
 		}else if(age < 15 || age >40){
-			alert("NO");
+			alert("正しいの年齢を入力してください。");
 			return  false;
 			
 		}
@@ -78,10 +79,10 @@
 			document.getElementsByName("scoreError")[0].innerText='scoreError';
 			isSubmit = false;
 		}else if(score.match(/[^0-9]+/)){
-			alert("NO");
+			alert("正しいの成績を入力してください。");
 			return false;	
 		}else if(score < 0 || score > 100){
-			alert("NO");
+			alert("正しいの成績を入力してください。");
 			return false;
 		}
 		if(address == ''){
